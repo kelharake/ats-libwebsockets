@@ -15,14 +15,14 @@ fun echo_callback(wsi: ptr, reason: lws_callback_reasons, user: &user_session, i
   | x when x = LWS_CALLBACK_ESTABLISHED => 0 where {
     val () = user.fd := 0
     val () = user.msgcount := 0
-    val () = println!("[Main Service] Connection established\n") }
+    val () = println!("[Main Service] Connection established") }
   | x when x = LWS_CALLBACK_RECEIVE => 0 where {
-    val () = println!("[Main Service] Server recv #", user.msgcount)
+    val () = print!("[Main Service] Server recv #", user.msgcount, ": ")
     val () = user.msgcount := user.msgcount + 1
     val () = println!(inp)
     val n  = lws_write_text(wsi, inp) }
   | x when x = LWS_CALLBACK_CLOSED => 0 where {
-    val () = println!("[Main Service] Connection closed\n") }
+    val () = println!("[Main Service] Connection closed") }
   | _ => 0
 
 implement main0() = let
