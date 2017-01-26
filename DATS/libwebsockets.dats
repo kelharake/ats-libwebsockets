@@ -29,10 +29,10 @@ implement{} lws_context_creation_info_null() = let
   val () = info.protocols                   := the_null_ptr
   val () = info.extensions                  := the_null_ptr
   val () = info.token_limits                := the_null_ptr
-	val () = info.ssl_private_key_password    := $UN.cast{string}(the_null_ptr)
-	val () = info.ssl_cert_filepath           := $UN.cast{string}(the_null_ptr)
+  val () = info.ssl_private_key_password    := $UN.cast{string}(the_null_ptr)
+  val () = info.ssl_cert_filepath           := $UN.cast{string}(the_null_ptr)
   val () = info.ssl_private_key_filepath    := $UN.cast{string}(the_null_ptr)
-	val () = info.ssl_ca_filepath             := $UN.cast{string}(the_null_ptr)
+  val () = info.ssl_ca_filepath             := $UN.cast{string}(the_null_ptr)
   val () = info.ssl_cipher_list             := $UN.cast{string}(the_null_ptr)
   val () = info.http_proxy_address          := $UN.cast{string}(the_null_ptr)
   val () = info.http_proxy_port             := 0
@@ -40,28 +40,28 @@ implement{} lws_context_creation_info_null() = let
   val () = info.uid                         := ~1 // 0 
   val () = info.options                     := 0
   val () = info.user                        := the_null_ptr
-	val () = info.ka_time                     := 0
+  val () = info.ka_time                     := 0
   val () = info.ka_probes                   := 0
   val () = info.ka_interval                 := 0
   val () = info.provided_client_ssl_ctx     := the_null_ptr
   val () = info.max_http_header_data        := $UN.cast{sint}(0)
-	val () = info.max_http_header_pool        := $UN.cast{sint}(0)
-	val () = info.count_threads               := 0
+  val () = info.max_http_header_pool        := $UN.cast{sint}(0)
+  val () = info.count_threads               := 0
   val () = info.fd_limit_per_thread         := 0
-	val () = info.timeout_secs                := 0
-	val () = info.ecdh_curve                  := $UN.cast{string}(the_null_ptr)
-	val () = info.vhost_name                  := $UN.cast{string}(the_null_ptr)
+  val () = info.timeout_secs                := 0
+  val () = info.ecdh_curve                  := $UN.cast{string}(the_null_ptr)
+  val () = info.vhost_name                  := $UN.cast{string}(the_null_ptr)
   val () = info.plugin_dirs                 := the_null_ptr
   val () = info.pvo                         := the_null_ptr
-	val () = info.keepalive_timeout           := 0
-	val () = info.log_filepath                := $UN.cast{string}(the_null_ptr)
+  val () = info.keepalive_timeout           := 0
+  val () = info.log_filepath                := $UN.cast{string}(the_null_ptr)
   val () = info.mounts                      := the_null_ptr
-	val () = info.server_string               := $UN.cast{string}(the_null_ptr)
-	val () = info.pt_serv_buf_size            := 0
-	val () = info.max_http_header_data2       := 0
-	val () = info.ssl_options_set             := $UN.cast{lint}(0)
-	val () = info.ssl_options_clear           := $UN.cast{lint}(0)
-	val () = info.ws_ping_pong_interval       := $UN.cast{sint}(0)
+  val () = info.server_string               := $UN.cast{string}(the_null_ptr)
+  val () = info.pt_serv_buf_size            := 0
+  val () = info.max_http_header_data2       := 0
+  val () = info.ssl_options_set             := $UN.cast{lint}(0)
+  val () = info.ssl_options_clear           := $UN.cast{lint}(0)
+  val () = info.ws_ping_pong_interval       := $UN.cast{sint}(0)
   val () = info.headers                     := the_null_ptr
   val () = $UN.ptr0_set_at_int($UN.cast{ptr}(info._unused), 0, the_null_ptr)
   val () = $UN.ptr0_set_at_int($UN.cast{ptr}(info._unused), 1, the_null_ptr)
