@@ -8,6 +8,88 @@
 #endif
 %}
 
+typedef lws_token_indexes = int
+macdef  WSI_TOKEN_GET_URI                           =  $extval(lws_token_indexes,  "WSI_TOKEN_GET_URI"                           )
+macdef  WSI_TOKEN_POST_URI                          =  $extval(lws_token_indexes,  "WSI_TOKEN_POST_URI"                          )
+macdef  WSI_TOKEN_OPTIONS_URI                       =  $extval(lws_token_indexes,  "WSI_TOKEN_OPTIONS_URI"                       )
+macdef  WSI_TOKEN_HOST                              =  $extval(lws_token_indexes,  "WSI_TOKEN_HOST"                              )
+macdef  WSI_TOKEN_CONNECTION                        =  $extval(lws_token_indexes,  "WSI_TOKEN_CONNECTION"                        )
+macdef  WSI_TOKEN_UPGRADE                           =  $extval(lws_token_indexes,  "WSI_TOKEN_UPGRADE"                           )
+macdef  WSI_TOKEN_ORIGIN                            =  $extval(lws_token_indexes,  "WSI_TOKEN_ORIGIN"                            )
+macdef  WSI_TOKEN_DRAFT                             =  $extval(lws_token_indexes,  "WSI_TOKEN_DRAFT"                             )
+macdef  WSI_TOKEN_CHALLENGE                         =  $extval(lws_token_indexes,  "WSI_TOKEN_CHALLENGE"                         )
+macdef  WSI_TOKEN_EXTENSIONS                        =  $extval(lws_token_indexes,  "WSI_TOKEN_EXTENSIONS"                        )
+macdef  WSI_TOKEN_KEY1                              =  $extval(lws_token_indexes,  "WSI_TOKEN_KEY1"                              )
+macdef  WSI_TOKEN_KEY2                              =  $extval(lws_token_indexes,  "WSI_TOKEN_KEY2"                              )
+macdef  WSI_TOKEN_PROTOCOL                          =  $extval(lws_token_indexes,  "WSI_TOKEN_PROTOCOL"                          )
+macdef  WSI_TOKEN_ACCEPT                            =  $extval(lws_token_indexes,  "WSI_TOKEN_ACCEPT"                            )
+macdef  WSI_TOKEN_NONCE                             =  $extval(lws_token_indexes,  "WSI_TOKEN_NONCE"                             )
+macdef  WSI_TOKEN_HTTP                              =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP"                              )
+macdef  WSI_TOKEN_HTTP2_SETTINGS                    =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP2_SETTINGS"                    )
+macdef  WSI_TOKEN_HTTP_ACCEPT                       =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ACCEPT"                       )
+macdef  WSI_TOKEN_HTTP_AC_REQUEST_HEADERS           =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_AC_REQUEST_HEADERS"           )
+macdef  WSI_TOKEN_HTTP_IF_MODIFIED_SINCE            =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_IF_MODIFIED_SINCE"            )
+macdef  WSI_TOKEN_HTTP_IF_NONE_MATCH                =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_IF_NONE_MATCH"                )
+macdef  WSI_TOKEN_HTTP_ACCEPT_ENCODING              =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ACCEPT_ENCODING"              )
+macdef  WSI_TOKEN_HTTP_ACCEPT_LANGUAGE              =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ACCEPT_LANGUAGE"              )
+macdef  WSI_TOKEN_HTTP_PRAGMA                       =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_PRAGMA"                       )
+macdef  WSI_TOKEN_HTTP_CACHE_CONTROL                =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CACHE_CONTROL"                )
+macdef  WSI_TOKEN_HTTP_AUTHORIZATION                =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_AUTHORIZATION"                )
+macdef  WSI_TOKEN_HTTP_COOKIE                       =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_COOKIE"                       )
+macdef  WSI_TOKEN_HTTP_CONTENT_LENGTH               =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CONTENT_LENGTH"               )
+macdef  WSI_TOKEN_HTTP_CONTENT_TYPE                 =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CONTENT_TYPE"                 )
+macdef  WSI_TOKEN_HTTP_DATE                         =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_DATE"                         )
+macdef  WSI_TOKEN_HTTP_RANGE                        =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_RANGE"                        )
+macdef  WSI_TOKEN_HTTP_REFERER                      =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_REFERER"                      )
+macdef  WSI_TOKEN_KEY                               =  $extval(lws_token_indexes,  "WSI_TOKEN_KEY"                               )
+macdef  WSI_TOKEN_VERSION                           =  $extval(lws_token_indexes,  "WSI_TOKEN_VERSION"                           )
+macdef  WSI_TOKEN_SWORIGIN                          =  $extval(lws_token_indexes,  "WSI_TOKEN_SWORIGIN"                          )
+macdef  WSI_TOKEN_HTTP_COLON_AUTHORITY              =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_COLON_AUTHORITY"              )
+macdef  WSI_TOKEN_HTTP_COLON_METHOD                 =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_COLON_METHOD"                 )
+macdef  WSI_TOKEN_HTTP_COLON_PATH                   =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_COLON_PATH"                   )
+macdef  WSI_TOKEN_HTTP_COLON_SCHEME                 =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_COLON_SCHEME"                 )
+macdef  WSI_TOKEN_HTTP_COLON_STATUS                 =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_COLON_STATUS"                 )
+macdef  WSI_TOKEN_HTTP_ACCEPT_CHARSET               =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ACCEPT_CHARSET"               )
+macdef  WSI_TOKEN_HTTP_ACCEPT_RANGES                =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ACCEPT_RANGES"                )
+macdef  WSI_TOKEN_HTTP_ACCESS_CONTROL_ALLOW_ORIGIN  =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ACCESS_CONTROL_ALLOW_ORIGIN"  )
+macdef  WSI_TOKEN_HTTP_AGE                          =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_AGE"                          )
+macdef  WSI_TOKEN_HTTP_ALLOW                        =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ALLOW"                        )
+macdef  WSI_TOKEN_HTTP_CONTENT_DISPOSITION          =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CONTENT_DISPOSITION"          )
+macdef  WSI_TOKEN_HTTP_CONTENT_ENCODING             =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CONTENT_ENCODING"             )
+macdef  WSI_TOKEN_HTTP_CONTENT_LANGUAGE             =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CONTENT_LANGUAGE"             )
+macdef  WSI_TOKEN_HTTP_CONTENT_LOCATION             =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CONTENT_LOCATION"             )
+macdef  WSI_TOKEN_HTTP_CONTENT_RANGE                =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_CONTENT_RANGE"                )
+macdef  WSI_TOKEN_HTTP_ETAG                         =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_ETAG"                         )
+macdef  WSI_TOKEN_HTTP_EXPECT                       =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_EXPECT"                       )
+macdef  WSI_TOKEN_HTTP_EXPIRES                      =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_EXPIRES"                      )
+macdef  WSI_TOKEN_HTTP_FROM                         =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_FROM"                         )
+macdef  WSI_TOKEN_HTTP_IF_MATCH                     =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_IF_MATCH"                     )
+macdef  WSI_TOKEN_HTTP_IF_RANGE                     =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_IF_RANGE"                     )
+macdef  WSI_TOKEN_HTTP_IF_UNMODIFIED_SINCE          =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_IF_UNMODIFIED_SINCE"          )
+macdef  WSI_TOKEN_HTTP_LAST_MODIFIED                =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_LAST_MODIFIED"                )
+macdef  WSI_TOKEN_HTTP_LINK                         =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_LINK"                         )
+macdef  WSI_TOKEN_HTTP_LOCATION                     =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_LOCATION"                     )
+macdef  WSI_TOKEN_HTTP_MAX_FORWARDS                 =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_MAX_FORWARDS"                 )
+macdef  WSI_TOKEN_HTTP_PROXY_AUTHENTICATE           =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_PROXY_AUTHENTICATE"           )
+macdef  WSI_TOKEN_HTTP_PROXY_AUTHORIZATION          =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_PROXY_AUTHORIZATION"          )
+macdef  WSI_TOKEN_HTTP_REFRESH                      =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_REFRESH"                      )
+macdef  WSI_TOKEN_HTTP_RETRY_AFTER                  =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_RETRY_AFTER"                  )
+macdef  WSI_TOKEN_HTTP_SERVER                       =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_SERVER"                       )
+macdef  WSI_TOKEN_HTTP_SET_COOKIE                   =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_SET_COOKIE"                   )
+macdef  WSI_TOKEN_HTTP_STRICT_TRANSPORT_SECURITY    =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_STRICT_TRANSPORT_SECURITY"    )
+macdef  WSI_TOKEN_HTTP_TRANSFER_ENCODING            =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_TRANSFER_ENCODING"            )
+macdef  WSI_TOKEN_HTTP_USER_AGENT                   =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_USER_AGENT"                   )
+macdef  WSI_TOKEN_HTTP_VARY                         =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_VARY"                         )
+macdef  WSI_TOKEN_HTTP_VIA                          =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_VIA"                          )
+macdef  WSI_TOKEN_HTTP_WWW_AUTHENTICATE             =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_WWW_AUTHENTICATE"             )
+macdef  WSI_TOKEN_PATCH_URI                         =  $extval(lws_token_indexes,  "WSI_TOKEN_PATCH_URI"                         )
+macdef  WSI_TOKEN_PUT_URI                           =  $extval(lws_token_indexes,  "WSI_TOKEN_PUT_URI"                           )
+macdef  WSI_TOKEN_DELETE_URI                        =  $extval(lws_token_indexes,  "WSI_TOKEN_DELETE_URI"                        )
+macdef  WSI_TOKEN_HTTP_URI_ARGS                     =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_URI_ARGS"                     )
+macdef  WSI_TOKEN_PROXY                             =  $extval(lws_token_indexes,  "WSI_TOKEN_PROXY"                             )
+macdef  WSI_TOKEN_HTTP_X_REAL_IP                    =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP_X_REAL_IP"                    )
+macdef  WSI_TOKEN_HTTP1_0                           =  $extval(lws_token_indexes,  "WSI_TOKEN_HTTP1_0"                           )
+
 typedef lws_log_levels = int
 macdef LLL_ERR     = $extval(lws_log_levels, "LLL_ERR"    )
 macdef LLL_WARN    = $extval(lws_log_levels, "LLL_WARN"   )
@@ -134,35 +216,35 @@ macdef EXTARG_DEC     = $extval(lws_ext_options_types, "EXTARG_DEC"    )
 macdef EXTARG_OPT_DEC = $extval(lws_ext_options_types, "EXTARG_OPT_DEC")
 
 typedef http_status = int
-macdef  HTTP_STATUS_OK                           = $extval(http_status, "HTTP_STATUS_OK"                        )
-macdef  HTTP_STATUS_NO_CONTENT                   = $extval(http_status, "HTTP_STATUS_NO_CONTENT"                )
-macdef  HTTP_STATUS_MOVED_PERMANENTLY            = $extval(http_status, "HTTP_STATUS_MOVED_PERMANENTLY"         )
-macdef  HTTP_STATUS_FOUND                        = $extval(http_status, "HTTP_STATUS_FOUND"                     )
-macdef  HTTP_STATUS_SEE_OTHER                    = $extval(http_status, "HTTP_STATUS_SEE_OTHER"                 )
-macdef  HTTP_STATUS_BAD_REQUEST                  = $extval(http_status, "HTTP_STATUS_BAD_REQUEST"               )
-macdef  HTTP_STATUS_UNAUTHORIZED                 = $extval(http_status, "HTTP_STATUS_UNAUTHORIZED"              )
-macdef  HTTP_STATUS_PAYMENT_REQUIRED             = $extval(http_status, "HTTP_STATUS_PAYMENT_REQUIRED"          )
-macdef  HTTP_STATUS_FORBIDDEN                    = $extval(http_status, "HTTP_STATUS_FORBIDDEN"                 )
-macdef  HTTP_STATUS_NOT_FOUND                    = $extval(http_status, "HTTP_STATUS_NOT_FOUND"                 )
-macdef  HTTP_STATUS_METHOD_NOT_ALLOWED           = $extval(http_status, "HTTP_STATUS_METHOD_NOT_ALLOWED"        )
-macdef  HTTP_STATUS_NOT_ACCEPTABLE               = $extval(http_status, "HTTP_STATUS_NOT_ACCEPTABLE"            )
-macdef  HTTP_STATUS_PROXY_AUTH_REQUIRED          = $extval(http_status, "HTTP_STATUS_PROXY_AUTH_REQUIRED"       )
-macdef  HTTP_STATUS_REQUEST_TIMEOUT              = $extval(http_status, "HTTP_STATUS_REQUEST_TIMEOUT"           )
-macdef  HTTP_STATUS_CONFLICT                     = $extval(http_status, "HTTP_STATUS_CONFLICT"                  )
-macdef  HTTP_STATUS_GONE                         = $extval(http_status, "HTTP_STATUS_GONE"                      )
-macdef  HTTP_STATUS_LENGTH_REQUIRED              = $extval(http_status, "HTTP_STATUS_LENGTH_REQUIRED"           )
-macdef  HTTP_STATUS_PRECONDITION_FAILED          = $extval(http_status, "HTTP_STATUS_PRECONDITION_FAILED"       )
-macdef  HTTP_STATUS_REQ_ENTITY_TOO_LARGE         = $extval(http_status, "HTTP_STATUS_REQ_ENTITY_TOO_LARGE"      )
-macdef  HTTP_STATUS_REQ_URI_TOO_LONG             = $extval(http_status, "HTTP_STATUS_REQ_URI_TOO_LONG"          )
-macdef  HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE       = $extval(http_status, "HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE"    )
-macdef  HTTP_STATUS_REQ_RANGE_NOT_SATISFIABLE    = $extval(http_status, "HTTP_STATUS_REQ_RANGE_NOT_SATISFIABLE" )
-macdef  HTTP_STATUS_EXPECTATION_FAILED           = $extval(http_status, "HTTP_STATUS_EXPECTATION_FAILED"        )
-macdef  HTTP_STATUS_INTERNAL_SERVER_ERROR        = $extval(http_status, "HTTP_STATUS_INTERNAL_SERVER_ERROR"     )
-macdef  HTTP_STATUS_NOT_IMPLEMENTED              = $extval(http_status, "HTTP_STATUS_NOT_IMPLEMENTED"           )
-macdef  HTTP_STATUS_BAD_GATEWAY                  = $extval(http_status, "HTTP_STATUS_BAD_GATEWAY"               )
-macdef  HTTP_STATUS_SERVICE_UNAVAILABLE          = $extval(http_status, "HTTP_STATUS_SERVICE_UNAVAILABLE"       )
-macdef  HTTP_STATUS_GATEWAY_TIMEOUT              = $extval(http_status, "HTTP_STATUS_GATEWAY_TIMEOUT"           )
-macdef  HTTP_STATUS_HTTP_VERSION_NOT_SUPPORTED   = $extval(http_status, "HTTP_STATUS_HTTP_VERSION_NOT_SUPPORTED")
+macdef HTTP_STATUS_OK                           = $extval(http_status, "HTTP_STATUS_OK"                        )
+macdef HTTP_STATUS_NO_CONTENT                   = $extval(http_status, "HTTP_STATUS_NO_CONTENT"                )
+macdef HTTP_STATUS_MOVED_PERMANENTLY            = $extval(http_status, "HTTP_STATUS_MOVED_PERMANENTLY"         )
+macdef HTTP_STATUS_FOUND                        = $extval(http_status, "HTTP_STATUS_FOUND"                     )
+macdef HTTP_STATUS_SEE_OTHER                    = $extval(http_status, "HTTP_STATUS_SEE_OTHER"                 )
+macdef HTTP_STATUS_BAD_REQUEST                  = $extval(http_status, "HTTP_STATUS_BAD_REQUEST"               )
+macdef HTTP_STATUS_UNAUTHORIZED                 = $extval(http_status, "HTTP_STATUS_UNAUTHORIZED"              )
+macdef HTTP_STATUS_PAYMENT_REQUIRED             = $extval(http_status, "HTTP_STATUS_PAYMENT_REQUIRED"          )
+macdef HTTP_STATUS_FORBIDDEN                    = $extval(http_status, "HTTP_STATUS_FORBIDDEN"                 )
+macdef HTTP_STATUS_NOT_FOUND                    = $extval(http_status, "HTTP_STATUS_NOT_FOUND"                 )
+macdef HTTP_STATUS_METHOD_NOT_ALLOWED           = $extval(http_status, "HTTP_STATUS_METHOD_NOT_ALLOWED"        )
+macdef HTTP_STATUS_NOT_ACCEPTABLE               = $extval(http_status, "HTTP_STATUS_NOT_ACCEPTABLE"            )
+macdef HTTP_STATUS_PROXY_AUTH_REQUIRED          = $extval(http_status, "HTTP_STATUS_PROXY_AUTH_REQUIRED"       )
+macdef HTTP_STATUS_REQUEST_TIMEOUT              = $extval(http_status, "HTTP_STATUS_REQUEST_TIMEOUT"           )
+macdef HTTP_STATUS_CONFLICT                     = $extval(http_status, "HTTP_STATUS_CONFLICT"                  )
+macdef HTTP_STATUS_GONE                         = $extval(http_status, "HTTP_STATUS_GONE"                      )
+macdef HTTP_STATUS_LENGTH_REQUIRED              = $extval(http_status, "HTTP_STATUS_LENGTH_REQUIRED"           )
+macdef HTTP_STATUS_PRECONDITION_FAILED          = $extval(http_status, "HTTP_STATUS_PRECONDITION_FAILED"       )
+macdef HTTP_STATUS_REQ_ENTITY_TOO_LARGE         = $extval(http_status, "HTTP_STATUS_REQ_ENTITY_TOO_LARGE"      )
+macdef HTTP_STATUS_REQ_URI_TOO_LONG             = $extval(http_status, "HTTP_STATUS_REQ_URI_TOO_LONG"          )
+macdef HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE       = $extval(http_status, "HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE"    )
+macdef HTTP_STATUS_REQ_RANGE_NOT_SATISFIABLE    = $extval(http_status, "HTTP_STATUS_REQ_RANGE_NOT_SATISFIABLE" )
+macdef HTTP_STATUS_EXPECTATION_FAILED           = $extval(http_status, "HTTP_STATUS_EXPECTATION_FAILED"        )
+macdef HTTP_STATUS_INTERNAL_SERVER_ERROR        = $extval(http_status, "HTTP_STATUS_INTERNAL_SERVER_ERROR"     )
+macdef HTTP_STATUS_NOT_IMPLEMENTED              = $extval(http_status, "HTTP_STATUS_NOT_IMPLEMENTED"           )
+macdef HTTP_STATUS_BAD_GATEWAY                  = $extval(http_status, "HTTP_STATUS_BAD_GATEWAY"               )
+macdef HTTP_STATUS_SERVICE_UNAVAILABLE          = $extval(http_status, "HTTP_STATUS_SERVICE_UNAVAILABLE"       )
+macdef HTTP_STATUS_GATEWAY_TIMEOUT              = $extval(http_status, "HTTP_STATUS_GATEWAY_TIMEOUT"           )
+macdef HTTP_STATUS_HTTP_VERSION_NOT_SUPPORTED   = $extval(http_status, "HTTP_STATUS_HTTP_VERSION_NOT_SUPPORTED")
 
 typedef lwsgs_smtp_states = int
 macdef LGSSMTP_IDLE       = $extval(lwsgs_smtp_states, "LGSSMTP_IDLE"      )
@@ -244,6 +326,14 @@ typedef lws_context_creation_info = $extype_struct "struct lws_context_creation_
 }
 
 
+fun lws_serve_http_file((*struct lws **) ptr, string, string, string, size_t): int = "mac#lws_serve_http_file"
+
+fun{} lws_serve_http_file_plain((*struct lws **) ptr, string, string): int
+
+fun lws_http_transaction_completed((*struct lws **)ptr): int = "mac#lws_http_transaction_completed"
+
+
+
 typedef ws_service_callback = (ptr, lws_close_status, ptr, size_t) -> int
 
 typedef ws_write_back = (ptr, ptr, size_t) -> int
@@ -267,4 +357,28 @@ fun{} lws_context_creation_info_null(): lws_context_creation_info
 fun{} lws_protocols_null(): lws_protocols
 
 fun{} lws_write_text((* *lws *)ptr, string): int
+
+fun{} lws_write_http((* *lws *)ptr, string): int
+
+(* ************************************************************************* *)
+// https://libwebsockets.org/lws-api-doc-v2.1-stable/html/group__HTTP-headers-create.html 
+
+fun lws_add_http_header_status((*struct lws **)ptr, code: int, (*unsigned char***)ptr, (*unsigned char**)ptr): int = "mac#lws_add_http_header_status"
+fun lws_add_http_header_by_name((*struct lws **)ptr, name: string, value: string, length: int, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_by_name"
+fun lws_add_http_header_by_token((*struct lws **)ptr, token: lws_token_indexes, (*const unsigned char **)value: ptr,
+  lgth: int, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_by_token"
+fun lws_add_http_header_content_length((*struct lws **)ptr, content_length: lint, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_content_length"
+fun lws_finalize_http_header((*struct lws **)ptr, (*unsigned char **)ptr, (*unsigned char **)ptr): int = "mac#lws_finalize_http_header"
+
+fun lws_return_http_status((*struct lws **)ptr, code: int, html_body: string): int = "mac#lws_return_http_status"
+
+fun lws_get_socket_fd((*struct lws **) ptr): int = "mac#lws_get_socket_fd"
+
+fun lws_get_context((*const struct lws **)ptr): lws_context_ptr = "mac#lws_get_context"
+
+fun lws_callback_on_writable((*struct lws **)ptr): int = "mac#lws_callback_on_writable"
+
+fun lws_callback_on_writable_all_protocol((*struct lws_context **)ptr, (*lws_protocols**) ptr): int = "mac#lws_callback_on_writable_all_protocol"
+
+fun lws_hdr_total_length((*struct lws **)ptr, lws_token_indexes): int = "mac#lws_hdr_total_length"
 

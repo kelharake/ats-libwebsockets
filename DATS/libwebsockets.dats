@@ -98,3 +98,17 @@ in
   n
 end
 
+implement{} lws_write_http(wsi, str) = let
+  val len = string_length(str)
+  val n   = lws_write(wsi, $UN.cast{ptr}(str), len, LWS_WRITE_HTTP)
+in
+  n
+end
+
+implement{} lws_serve_http_file_plain(wsi, path, mime) =
+  lws_serve_http_file(wsi, path, mime, $UN.cast{string}(the_null_ptr), i2sz(0))
+
+
+
+
+
