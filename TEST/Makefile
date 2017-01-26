@@ -14,7 +14,7 @@ PATSCC2=$(PATSCC) $(INCLUDE) $(INCLUDE_ATS)
 CC=gcc
 CXX=gcc
 
-all: test.out
+all: test01.out test02.out
 
 %.out: %.dats
 	$(PATSCC) -DATS_MEMALLOC_GCBDW $(INCLUDE) -o $@ $<
