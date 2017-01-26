@@ -20,7 +20,7 @@ fun http_callback{n: nat}(wsi: ptr, reason: lws_callback_reasons, user: ptr, inp
     val ext = filename_get_extension(inp)
     val mime = extension_to_mime(ext)
     val n =
-      if test_file_exists(path) then
+      if test_file_exists(path) && test_file_isdir(path) = 0 then
         lws_serve_http_file_plain(wsi, path, mime)
       else
         lws_return_http_status(wsi, HTTP_STATUS_NOT_FOUND, "File not found!") }
