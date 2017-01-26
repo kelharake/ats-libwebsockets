@@ -17,7 +17,7 @@ fun http_callback{n: nat}(wsi: ptr, reason: lws_callback_reasons, user: ptr, inp
   | x when x = LWS_CALLBACK_HTTP => ~1 where {
     val () = println!("[HTTP Service] Request received") 
     val path = "./" + inp
-    val ext = path_extension(inp)
+    val ext = filename_get_extension(inp)
     val mime = extension_to_mime(ext)
     val n =
       if test_file_exists(path) then
