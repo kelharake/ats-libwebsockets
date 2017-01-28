@@ -12,20 +12,17 @@ staload _ = "libats/ML/DATS/string.dats"
 
 fun http_callback{n: nat}(wsi: ptr, reason: lws_callback_reasons, user: ptr, inp: string, len: size_t n): int =
    case reason of
-  | x when x = LWS_CALLBACK_CLIENT_WRITEABLE => 0 where {
-    val () = println!("[HTTP Service] Connection established") }
   | x when x = LWS_CALLBACK_HTTP => ~1 where {
     val () = println!("[HTTP Service] Request received") 
     val path = "./" + inp
-    val ext = filename_get_extension(inp)
-    val mime = extension_to_mime(ext)
+    val (fpf | ext) = filename_get_ext(inp)
+    val mime = extension_to_mime(if strptr_isnot_null(ext) then $UN.strptr2string(ext) else "")
+    prval () = fpf(ext)        
     val n =
       if test_file_exists(path) && test_file_isdir(path) = 0 then
         lws_serve_http_file_plain(wsi, path, mime)
       else
         lws_return_http_status(wsi, HTTP_STATUS_NOT_FOUND, "File not found!") }
-  | x when x = LWS_CALLBACK_CLOSED => 0 where {
-    val () = println!("[HTTP Service] Connection closed") }
   | _ => 0
 
 

@@ -1,5 +1,3 @@
-#include "share/atspre_staload.hats"
-#include "share/atspre_define.hats"
 
 %{#
 #ifndef LIBWEBSOCKETS_SATS

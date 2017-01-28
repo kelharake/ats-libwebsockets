@@ -12,18 +12,7 @@ staload _ = "libats/ML/DATS/string.dats"
 #include "libats/libc/CATS/string.cats"
 %}
 
-
 staload UN = "prelude/SATS/unsafe.sats"
-
-implement{} filename_get_extension(filename) = let
-  val ptr = $UN.castvwtp0{ptr}(filename_get_ext(filename))
-in
-  if ptr > the_null_ptr then
-    string_copy($UN.cast{string}(ptr))
-  else 
-    ""
-end
-
 
 implement{} extension_to_mime(extension) =
   case extension of
