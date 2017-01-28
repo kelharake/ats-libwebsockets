@@ -25,16 +25,16 @@ char *libwebsockets_make_buffer(char *str, int len) {
 implement{} lws_context_creation_info_null() = let
   var info : lws_context_creation_info
   val () = info.port                        := 0
-  val () = info.iface                       := $UN.cast{string}(the_null_ptr)
+  val () = info.iface                       := stropt_none()
   val () = info.protocols                   := the_null_ptr
   val () = info.extensions                  := the_null_ptr
   val () = info.token_limits                := the_null_ptr
-  val () = info.ssl_private_key_password    := $UN.cast{string}(the_null_ptr)
-  val () = info.ssl_cert_filepath           := $UN.cast{string}(the_null_ptr)
-  val () = info.ssl_private_key_filepath    := $UN.cast{string}(the_null_ptr)
-  val () = info.ssl_ca_filepath             := $UN.cast{string}(the_null_ptr)
-  val () = info.ssl_cipher_list             := $UN.cast{string}(the_null_ptr)
-  val () = info.http_proxy_address          := $UN.cast{string}(the_null_ptr)
+  val () = info.ssl_private_key_password    := stropt_none()
+  val () = info.ssl_cert_filepath           := stropt_none()
+  val () = info.ssl_private_key_filepath    := stropt_none()
+  val () = info.ssl_ca_filepath             := stropt_none()
+  val () = info.ssl_cipher_list             := stropt_none()
+  val () = info.http_proxy_address          := stropt_none()
   val () = info.http_proxy_port             := 0
   val () = info.gid                         := ~1 // 0 
   val () = info.uid                         := ~1 // 0 
@@ -49,14 +49,14 @@ implement{} lws_context_creation_info_null() = let
   val () = info.count_threads               := 0
   val () = info.fd_limit_per_thread         := 0
   val () = info.timeout_secs                := 0
-  val () = info.ecdh_curve                  := $UN.cast{string}(the_null_ptr)
-  val () = info.vhost_name                  := $UN.cast{string}(the_null_ptr)
+  val () = info.ecdh_curve                  := stropt_none()
+  val () = info.vhost_name                  := stropt_none()
   val () = info.plugin_dirs                 := the_null_ptr
   val () = info.pvo                         := the_null_ptr
   val () = info.keepalive_timeout           := 0
-  val () = info.log_filepath                := $UN.cast{string}(the_null_ptr)
+  val () = info.log_filepath                := stropt_none()
   val () = info.mounts                      := the_null_ptr
-  val () = info.server_string               := $UN.cast{string}(the_null_ptr)
+  val () = info.server_string               := stropt_none()
   val () = info.pt_serv_buf_size            := 0
   val () = info.max_http_header_data2       := 0
   val () = info.ssl_options_set             := $UN.cast{lint}(0)
@@ -77,7 +77,7 @@ end
 
 implement{} lws_protocols_null() = let
   var x : lws_protocols
-  val () = x.name                     := $UN.cast{string}(the_null_ptr)
+  val () = x.name                     := ""
   val () = x.callback                 := $UN.cast{lws_callback_function}(the_null_ptr)
   val () = x.per_session_data_size    := i2sz(0)
   val () = x.rx_buffer_size           := i2sz(0)
@@ -106,7 +106,7 @@ in
 end
 
 implement{} lws_serve_http_file_plain(wsi, path, mime) =
-  lws_serve_http_file(wsi, path, mime, $UN.cast{string}(the_null_ptr), i2sz(0))
+  lws_serve_http_file(wsi, path, mime, stropt_none(), i2sz(0))
 
 
 

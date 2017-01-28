@@ -284,16 +284,16 @@ typedef lws_protocols = $extype_struct "struct lws_protocols" of {
 
 typedef lws_context_creation_info = $extype_struct "struct lws_context_creation_info" of {
   port                      =  int,
-  iface                     =  string,
+  iface                     =  stropt,    (*const    char           **)
   protocols                 =  ptr,       (*const    struct         lws_protocols               **)
   extensions                =  ptr,       (*const    struct         lws_extension               **)
   token_limits              =  ptr,       (*const    struct         lws_token_limits            **)
-  ssl_private_key_password  =  string,    (*const    char           **)
-  ssl_cert_filepath         =  string,    (*const    char           **)
-  ssl_private_key_filepath  =  string,    (*const    char           **)
-  ssl_ca_filepath           =  string,    (*const    char           **)
-  ssl_cipher_list           =  string,    (*const    char           **)
-  http_proxy_address        =  string,    (*const    char           **)
+  ssl_private_key_password  =  stropt,    (*const    char           **)
+  ssl_cert_filepath         =  stropt,    (*const    char           **)
+  ssl_private_key_filepath  =  stropt,    (*const    char           **)
+  ssl_ca_filepath           =  stropt,    (*const    char           **)
+  ssl_cipher_list           =  stropt,    (*const    char           **)
+  http_proxy_address        =  stropt,    (*const    char           **)
   http_proxy_port           =  int,
   gid                       =  int,
   uid                       =  int,
@@ -308,14 +308,14 @@ typedef lws_context_creation_info = $extype_struct "struct lws_context_creation_
   count_threads             =  int,
   fd_limit_per_thread       =  int,
   timeout_secs              =  int,
-  ecdh_curve                =  string,    (*const    char           **)
-  vhost_name                =  string,    (*const    char           **)
+  ecdh_curve                =  stropt,    (*const    char           **)
+  vhost_name                =  stropt,    (*const    char           **)
   plugin_dirs               =  ptr,       (*const    char           *                           const  **)
   pvo                       =  ptr,       (*const    struct         lws_protocol_vhost_options  **)
   keepalive_timeout         =  int,
-  log_filepath              =  string,    (*const    char           **)
+  log_filepath              =  stropt,    (*const    char           **)
   mounts                    =  ptr,       (*const    struct         lws_http_mount              **)
-  server_string             =  string,    (*const    char           **)
+  server_string             =  stropt,    (*const    char           **)
   pt_serv_buf_size          =  int,
   max_http_header_data2     =  int,
   ssl_options_set           =  lint,
@@ -326,7 +326,7 @@ typedef lws_context_creation_info = $extype_struct "struct lws_context_creation_
 }
 
 
-fun lws_serve_http_file((*struct lws **) ptr, string, string, string, size_t): int = "mac#lws_serve_http_file"
+fun lws_serve_http_file((*struct lws **) ptr, string, string, stropt, size_t): int = "mac#lws_serve_http_file"
 
 fun{} lws_serve_http_file_plain((*struct lws **) ptr, string, string): int
 
