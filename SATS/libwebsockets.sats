@@ -10,6 +10,8 @@
 
 %}
 
+typedef lws_ptr = $extype"struct lws*"
+
 typedef lws_token_indexes = int
 macdef  WSI_TOKEN_GET_URI                           =  $extval(lws_token_indexes,  "WSI_TOKEN_GET_URI"                           )
 macdef  WSI_TOKEN_POST_URI                          =  $extval(lws_token_indexes,  "WSI_TOKEN_POST_URI"                          )
@@ -273,7 +275,7 @@ macdef LWS_WRITE_CLIENT_IGNORE_XOR_MASK = $extval(lws_write_protocol, "LWS_WRITE
 macdef LWS_SEND_BUFFER_PRE_PADDING      = $extval([n: nat] int n, "LWS_SEND_BUFFER_PRE_PADDING"  )
 macdef LWS_SEND_BUFFER_POST_PADDING     = $extval([n: nat] int n, "LWS_SEND_BUFFER_POST_PADDING" )
 
-typedef lws_callback_function = (ptr, lws_callback_reasons, ptr, ptr, size_t) -> int
+typedef lws_callback_function = (!lws_ptr, lws_callback_reasons, ptr, ptr, size_t) -> int
 
 typedef lws_protocols = $extype_struct "struct lws_protocols" of {
   name                  = string,
@@ -328,11 +330,11 @@ typedef lws_context_creation_info = $extype_struct "struct lws_context_creation_
 }
 
 
-fun lws_serve_http_file((*struct lws **) ptr, string, string, stropt, size_t): int = "mac#lws_serve_http_file"
+fun lws_serve_http_file(!lws_ptr, string, string, stropt, size_t): int = "mac#lws_serve_http_file"
 
-fun{} lws_serve_http_file_plain((*struct lws **) ptr, string, string): int
+fun{} lws_serve_http_file_plain(!lws_ptr, string, string): int
 
-fun lws_http_transaction_completed((*struct lws **)ptr): int = "mac#lws_http_transaction_completed"
+fun lws_http_transaction_completed(!lws_ptr): int = "mac#lws_http_transaction_completed"
 
 
 
@@ -348,39 +350,38 @@ fun lws_context_destroy(lws_context_ptr): void = "mac#lws_context_destroy"
 
 fun lws_service(!lws_context_ptr, int): int = "mac#lws_service"
 
-// fun lws_create_context(&lws_context_creation_info): ptr (* lws_context *) = "mac#lws_create_context"
-// fun lws_context_destroy((* *lws_context *) ptr): void = "mac#lws_context_destroy"
-// fun lws_service((* *lws_context *) ptr, (* timeout_ms *) int): int = "mac#lws_service"
-
-fun lws_write((* *lws *)ptr, (*unsigned char**) ptr, size_t, lws_write_protocol): int = "mac#lws_write"
+fun lws_write(!lws_ptr, (*unsigned char**) ptr, size_t, lws_write_protocol): int = "mac#lws_write"
 
 fun{} lws_context_creation_info_null(): lws_context_creation_info
 
 fun{} lws_protocols_null(): lws_protocols
 
-fun{} lws_write_text((* *lws *)ptr, string): int
+fun{} lws_write_text(!lws_ptr, string): int
 
-fun{} lws_write_http((* *lws *)ptr, string): int
+fun{} lws_write_http(!lws_ptr, string): int
 
 (* ************************************************************************* *)
 // https://libwebsockets.org/lws-api-doc-v2.1-stable/html/group__HTTP-headers-create.html 
 
-fun lws_add_http_header_status((*struct lws **)ptr, code: int, (*unsigned char***)ptr, (*unsigned char**)ptr): int = "mac#lws_add_http_header_status"
-fun lws_add_http_header_by_name((*struct lws **)ptr, name: string, value: string, length: int, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_by_name"
-fun lws_add_http_header_by_token((*struct lws **)ptr, token: lws_token_indexes, (*const unsigned char **)value: ptr,
+fun lws_add_http_header_status(!lws_ptr, code: int, (*unsigned char***)ptr, (*unsigned char**)ptr): int = "mac#lws_add_http_header_status"
+
+fun lws_add_http_header_by_name(!lws_ptr, name: string, value: string, length: int, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_by_name"
+
+fun lws_add_http_header_by_token(!lws_ptr, token: lws_token_indexes, (*const unsigned char **)value: ptr,
   lgth: int, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_by_token"
-fun lws_add_http_header_content_length((*struct lws **)ptr, content_length: lint, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_content_length"
-fun lws_finalize_http_header((*struct lws **)ptr, (*unsigned char **)ptr, (*unsigned char **)ptr): int = "mac#lws_finalize_http_header"
 
-fun lws_return_http_status((*struct lws **)ptr, code: int, html_body: string): int = "mac#lws_return_http_status"
+fun lws_add_http_header_content_length(!lws_ptr, content_length: lint, (*unsigned char ***)ptr, (*unsigned char **)ptr): int = "mac#lws_add_http_header_content_length"
+fun lws_finalize_http_header(!lws_ptr, (*unsigned char **)ptr, (*unsigned char **)ptr): int = "mac#lws_finalize_http_header"
 
-fun lws_get_socket_fd((*struct lws **) ptr): int = "mac#lws_get_socket_fd"
+fun lws_return_http_status(!lws_ptr, code: int, html_body: string): int = "mac#lws_return_http_status"
 
-fun lws_get_context((*const struct lws **)ptr): lws_context_ptr = "mac#lws_get_context"
+fun lws_get_socket_fd(!lws_ptr): int = "mac#lws_get_socket_fd"
 
-fun lws_callback_on_writable((*struct lws **)ptr): int = "mac#lws_callback_on_writable"
+fun lws_get_context(!lws_ptr): lws_context_ptr = "mac#lws_get_context"
 
-fun lws_callback_on_writable_all_protocol((*struct lws_context **)ptr, (*lws_protocols**) ptr): int = "mac#lws_callback_on_writable_all_protocol"
+fun lws_callback_on_writable(!lws_ptr): int = "mac#lws_callback_on_writable"
 
-fun lws_hdr_total_length((*struct lws **)ptr, lws_token_indexes): int = "mac#lws_hdr_total_length"
+fun lws_callback_on_writable_all_protocol(!lws_context_ptr, (*lws_protocols**) ptr): int = "mac#lws_callback_on_writable_all_protocol"
+
+fun lws_hdr_total_length(!lws_ptr, lws_token_indexes): int = "mac#lws_hdr_total_length"
 

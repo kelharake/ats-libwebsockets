@@ -10,7 +10,7 @@ staload UN = "prelude/SATS/unsafe.sats"
 
 typedef user_session = @{fd=int, msgcount=int}
 
-fun echo_callback(wsi: ptr, reason: lws_callback_reasons, user: &user_session, inp: string, len: size_t): int =
+fun echo_callback(wsi: !lws_ptr, reason: lws_callback_reasons, user: &user_session, inp: string, len: size_t): int =
   case reason of
   | x when x = LWS_CALLBACK_ESTABLISHED => 0 where {
     val () = user.fd := 0

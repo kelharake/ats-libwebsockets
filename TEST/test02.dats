@@ -10,7 +10,7 @@ staload UN = "prelude/SATS/unsafe.sats"
 staload "libats/ML/SATS/string.sats"
 staload _ = "libats/ML/DATS/string.dats"
 
-fun http_callback{n: nat}(wsi: ptr, reason: lws_callback_reasons, user: ptr, inp: string, len: size_t n): int =
+fun http_callback{n: nat}(wsi: !lws_ptr, reason: lws_callback_reasons, user: ptr, inp: string, len: size_t n): int =
    case reason of
   | x when x = LWS_CALLBACK_HTTP => ~1 where {
     val () = println!("[HTTP Service] Request received") 
