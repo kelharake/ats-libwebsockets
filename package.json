@@ -1,0 +1,23 @@
+{
+  "keywords": [
+    "ATS",
+    "libwebsockets"
+  ],
+  "name": "atscntrb-keh-libwebsockets",
+  "version": "0.0.4",
+  "description": "ATS bindings for libwebsockets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelharake/atscntrb-keh-libwebsockets.git"
+  },
+  "author": "Khalil El-Harake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kelharake/atscntrb-keh-libwebsockets/issues"
+  },
+  "homepage": "https://github.com/kelharake/atscntrb-keh-libwebsockets#readme"
+}
