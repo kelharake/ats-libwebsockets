@@ -1,18 +1,13 @@
 
-INCLUDE += -lwebsockets
-INCLUDE += -lgc
+INCLUDE 		+= -lwebsockets
+INCLUDE 		+= -lgc
 
-INCLUDE += -I $(PATSCONTRIB) 
-INCLUDE += -I ../..
-
-INCLUDE += -IIATS $(PATSCONTRIB)
-INCLUDE += -IIATS ../..
-
-PATSCC=patscc
-PATSCC2=$(PATSCC) $(INCLUDE) $(INCLUDE_ATS)
+INCLUDE 		+= $(patsubst %,-I %,$(subst :, ,$(PATSHOMELOCS)))
+INCLUDE_ATS += $(patsubst %,-IATS %,$(subst :, ,$(PATSHOMELOCS)))
 
 CC=gcc
-CXX=gcc
+PATSCC=patscc
+PATSCC2=$(PATSCC) $(INCLUDE) $(INCLUDE_ATS)
 
 all: test01.out test02.out
 

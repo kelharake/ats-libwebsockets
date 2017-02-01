@@ -1,9 +1,13 @@
 
 %{#
-#ifndef LIBWEBSOCKETS_SATS
-#define LIBWEBSOCKETS_SATS
+
+#ifndef ATSCNTRB_KEH_LIBWEBSOCKETS_LIBWEBSOCKETS_SATS
+#define ATSCNTRB_KEH_LIBWEBSOCKETS_LIBWEBSOCKETS_SATS
+
 #include <libwebsockets.h>
+
 #endif
+
 %}
 
 typedef lws_token_indexes = int
