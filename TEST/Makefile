@@ -1,8 +1,8 @@
 
-INCLUDE 		+= -lwebsockets
-INCLUDE 		+= -lgc
+INCLUDE     += -lwebsockets
+INCLUDE     += -lgc
 
-INCLUDE 		+= $(patsubst %,-I %,$(subst :, ,$(PATSHOMELOCS)))
+INCLUDE     += $(patsubst %,-I %,$(subst :, ,$(PATSHOMELOCS)))
 INCLUDE_ATS += $(patsubst %,-IATS %,$(subst :, ,$(PATSHOMELOCS)))
 
 CC=gcc
