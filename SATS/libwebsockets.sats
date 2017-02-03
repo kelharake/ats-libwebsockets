@@ -277,7 +277,7 @@ macdef LWS_SEND_BUFFER_POST_PADDING     = $extval([n: nat] int n, "LWS_SEND_BUFF
 
 typedef lws_callback_function = (!lws_ptr, lws_callback_reasons, ptr, ptr, size_t) -> int
 
-typedef lws_protocols = $extype_struct "struct lws_protocols" of {
+viewtypedef lws_protocols = $extype_struct "struct lws_protocols" of {
   name                  = string,
   callback              = lws_callback_function,
   per_session_data_size = size_t,
@@ -286,7 +286,7 @@ typedef lws_protocols = $extype_struct "struct lws_protocols" of {
   user                  = ptr
 };
 
-typedef lws_context_creation_info = $extype_struct "struct lws_context_creation_info" of {
+viewtypedef lws_context_creation_info = $extype_struct "struct lws_context_creation_info" of {
   port                      =  int,
   iface                     =  stropt,    (*const    char           **)
   protocols                 =  ptr,       (*const    struct         lws_protocols               **)
