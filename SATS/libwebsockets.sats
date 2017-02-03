@@ -6,6 +6,18 @@
 
 #include <libwebsockets.h>
 
+#define __STRINGIFY(TEXT) #TEXT
+#define __ERROR(TEXT) __STRINGIFY(GCC error TEXT)
+#define VERSION_ERROR(VALUE) __ERROR(__STRINGIFY(requires libwebsockets version "2.1.0". You are using version VALUE.))
+
+#if !defined(LWS_LIBRARY_VERSION_MAJOR) || !defined(LWS_LIBRARY_VERSION_MINOR) || !defined(LWS_LIBRARY_VERSION_PATCH) || !defined(LWS_LIBRARY_VERSION)
+_Pragma (VERSION_ERROR(LWS_LIBRARY_VERSION))
+#endif
+
+#if LWS_LIBRARY_VERSION_MAJOR != 2
+_Pragma (VERSION_ERROR(LWS_LIBRARY_VERSION))
+#endif
+
 #endif
 
 %}
