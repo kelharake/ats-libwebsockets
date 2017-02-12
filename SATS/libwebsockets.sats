@@ -372,6 +372,8 @@ fun{} lws_write_text(!lws_ptr, string): int
 
 fun{} lws_write_http(!lws_ptr, string): int
 
+fun lws_set_log_level(lws_log_levels, ptr): void = "mac#lws_set_log_level"
+
 (* ************************************************************************* *)
 // https://libwebsockets.org/lws-api-doc-v2.1-stable/html/group__HTTP-headers-create.html 
 
