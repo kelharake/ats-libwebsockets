@@ -399,3 +399,6 @@ fun lws_callback_on_writable_all_protocol(!lws_context_ptr, (*lws_protocols**) p
 
 fun lws_hdr_total_length(!lws_ptr, lws_token_indexes): int = "mac#lws_hdr_total_length"
 
+fun lws_close_reason(!lws_ptr, lws_close_status, ptr, size_t): void = "mac#lws_close_reason"
+
+
